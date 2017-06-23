@@ -522,15 +522,17 @@ int main(){
 
             									if(apuesta<= mesas[i]->getJugador()->getTotal()){
 												//Juego
+            										int total1, total2;
             										while(total1==21||total1>2||total2==21||total2>21){
             											if(cont%2==0){
-													//turno Repartidor
+													//turno Repartidor 
             												
             												cout<<"Estas son sus carta Repartidor"<<endl;
-
+            												 
             												cout<<"Este es el valor de su primera carta: "<< carta1R<<endl;
             												cout<<"Este es el valor de su segunda carta: "<< carta2R<<endl;
-            												cout<<"Esta es la suma de sus cartas: "<<carta1R+carta2R<<endl;
+            												total1 +=carta1R+carta2R;
+            												cout<<"Esta es la suma de sus cartas: "<<total1<<endl;
 
             												cout<<"Estas son las carta de su rival"<<endl;
 
@@ -543,6 +545,10 @@ int main(){
             												int accion;
 
             												if(accion==1){
+            													int random = rand()%52+1;
+            													
+            													cout <<"El valor de la carta que saco es: "<<random<<endl;
+
 
 
             												}else if(accion==2){
