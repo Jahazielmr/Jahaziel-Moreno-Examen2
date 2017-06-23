@@ -17,6 +17,14 @@ string Mesa::getTipo(){
    return tipo;
 }
 
+void Mesa::setNumero(int numero){
+   this-> numero=numero;
+}
+
+int Mesa::getNumero(){
+   return numero;
+}
+
 Jugador* Mesa::getJugador(){
 	return jugador;
 }

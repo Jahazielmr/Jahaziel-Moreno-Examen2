@@ -19,70 +19,175 @@ int main(){
 	vector <Repartidor*> repartidores;
 	vector <Administrador*> administradores;
 	vector <Jugador*> jugadores;
+	vector <Mesa*> mesas;
 
 	
 	char resp ='s';
-    int option;
-    while(resp=='s'||resp=='S'){
-        cout <<"Menu"<<endl;
-        cout <<"1-Ingresar como Administrador"<<endl;
-        cout <<"2-Ingresar como Usuario"<<endl;
-        cout <<"3-Crear Cuenta Administrador"<<endl;
-        cout <<"4-Crear Cuenta Repartidor"<<endl;
-        cout <<"5-Crear Cuenta Jugador"<<endl;
-        cout <<"6-salir"<<endl;
-        cin>> option;
-        switch (option){
-            case 1:{
+	int option;
+	while(resp=='s'||resp=='S'){
+		cout <<"Menu"<<endl;
+		cout <<"1-Ingresar como Administrador"<<endl;
+		cout <<"2-Ingresar como Usuario"<<endl;
+		cout <<"3-Crear Cuenta Administrador"<<endl;
+		cout <<"4-Crear Cuenta Repartidor"<<endl;
+		cout <<"5-Crear Cuenta Jugador"<<endl;
+		cout <<"6-salir"<<endl;
+		cin>> option;
+		switch (option){
+			case 1:{
             	//log in si es el admin se le presenta un menu, si no  no;
-               	string usuario, contra;
-                cout<<"Ingrese Nombre: "<<endl;
-                cin>>usuario;
-                cout<<"Ingrese ID: "<<endl;
-                cin>>contra;
+				string usuario, contra;
+				cout<<"Ingrese Nombre: "<<endl;
+				cin>>usuario;
+				cout<<"Ingrese ID: "<<endl;
+				cin>>contra;
 
-                for (int i = 0; i < administradores.size(); ++i){
-                		
-                		if(usuario==administradores[i]->getNombre()&&contra==administradores[i]->getID()){
-                			int op;
+				for (int i = 0; i < administradores.size(); ++i){
 
-                			cout<<"Bienvenido al Menu de Administrador"<<endl;
-                			cout<<"------------------------------------------"<<endl;
-                        	cout<<"1-Agregar Mesa"<<endl;
-                        	cout<<"2-Modificar Mesa"<<endl;
-                        	cout<<"3-Eliminar Mesa"<<endl;
-                        	cout<<"4-listar"<<endl;
-                        	cout<<"5-salir"<<endl;
-                        	cin>>op;
+					if(usuario==administradores[i]->getNombre()&&contra==administradores[i]->getID()){
+						int op;
 
-                        	switch(op){
+						cout<<"Bienvenido al Menu de Administrador"<<endl;
+						cout<<"------------------------------------------"<<endl;
+						cout<<"1-Agregar Mesa"<<endl;
+						cout<<"2-Modificar Mesa"<<endl;
+						cout<<"3-Eliminar Mesa"<<endl;
+						cout<<"4-Salir"<<endl;
+						cin>>op;
 
-                        		case 1:{
-                        			
+						switch(op){
 
-                        		break;
-                        		}
+							case 1:{
+                        			//agregar Mesas;
+								if(jugadores.size()==0||repartidores.size()==0){
+									cout <<"Tiene que agregar jugadores y repartidores"<<endl;
 
-                        		case 2:{
+								} else{
 
-                        		break;
-                        		}
+									int jugador;
+									int repartidor;
+									int numero;
+									string tipo;
 
-                        		case 3:{
+									cout<<"ELija un repartidor"<<endl;
+									cout<<"--------------------------------"<<endl;
+									for (int i = 0; i < repartidores.size(); ++i){
 
-                        		break;
-                        		}
+										cout<<i<<"-)"<<"Repartidor: "<<repartidores[i]->getNombre()<<endl;
 
-                        		case 4:{
+									}
 
-                        		break;
-                        		}
+									cin>>repartidor;
 
-                        		case 5:{
+									cout<<"ELija un jugador"<<endl;
+									cout<<"--------------------------------"<<endl;
+									for (int i = 0; i < jugadores.size(); ++i){
 
-                        		break;
-                        		}
+										cout<<i<<"-)"<<"Jugador: "<<jugadores[i]->getNombre()<<endl;
 
+									}               
+
+									cin>>jugador;    				
+
+									cout<<"Ingrese Numero de Mesa: "<<endl;
+									cin>>numero;
+									cout<<"Ingrese Tipo: "<<endl;
+									cin>>tipo;
+
+									Mesa* temp = new Mesa(numero,tipo);
+
+									temp->setJugador(jugadores[jugador]);
+									temp->setRepartidor(repartidores[repartidor]);
+
+
+									mesas.push_back(temp);
+
+								}
+
+
+								break;
+							}
+
+							case 2:{
+                        			//Modificacion;
+
+								int jugador;
+								int repartidor;
+								int numero;
+								string tipo;
+								int mesa;
+
+
+								cout<<"ELija Mesa a modificar"<<endl;
+								cout<<"--------------------------------"<<endl;
+								for (int i = 0; i < mesas.size(); ++i){
+
+									cout<<i<<"-)"<<"Mesa Numero: "<<mesas[i]->getNumero()<<endl;
+
+								}
+
+								cin>>mesa;
+
+								cout<<"ELija un nuevo repartidor"<<endl;
+								cout<<"--------------------------------"<<endl;
+								for (int i = 0; i < repartidores.size(); ++i){
+
+									cout<<i<<"-)"<<"Repartidor: "<<repartidores[i]->getNombre()<<endl;
+
+								}
+
+								cin>>repartidor;
+
+								cout<<"ELija un nuevo jugador"<<endl;
+								cout<<"--------------------------------"<<endl;
+								for (int i = 0; i < jugadores.size(); ++i){
+
+									cout<<i<<"-)"<<"Jugador: "<<jugadores[i]->getNombre()<<endl;
+
+								}               
+
+
+								cin>>jugador; 
+
+								cout<<"Ingrese nuevo Numero de Mesa: "<<endl;
+								cin>>numero;
+								cout<<"Ingrese nuevo Tipo: "<<endl;
+								cin>>tipo;
+
+								
+
+								mesas[mesa]->setJugador(jugadores[jugador]);
+								mesas[mesa]->setRepartidor(repartidores[repartidor]);
+								mesas[mesa]->setNumero(numero);
+								mesas[mesa]->setTipo(tipo);
+
+								break;
+							}
+
+							case 3:{
+
+								int mesa;
+								cout<<"ELija Mesa a Eliminar"<<endl;
+								cout<<"--------------------------------"<<endl;
+								for (int i = 0; i < mesas.size(); ++i){
+
+									cout<<i<<"-)"<<"Mesa Numero: "<<mesas[i]->getNumero()<<endl;
+
+								}
+
+								cin>>mesa;
+
+								mesas.erase(mesas.begin()+mesa);
+
+
+							break;
+							}
+
+							case 4:{
+
+								//salir
+							break;
+							}
 
 
                         	}//fin switch
@@ -95,77 +200,133 @@ int main(){
                 }//fi for
 
 
-            break;
-        	}
+                break;
+            }
 
-        	case 2:{
+            case 2:{
         		//ingresar como usuario
 
-        		string usuario, contra;
-                cout<<"Ingrese Nombre: "<<endl;
-                cin>>usuario;
-                cout<<"Ingrese ID: "<<endl;
-                cin>>contra;
+            	string usuario1, contra1;
+            	cout<<"Ingrese Nombre: "<<endl;
+            	cin>>usuario1;
+            	cout<<"Ingrese ID: "<<endl;
+            	cin>>contra1;
 
-                for (int i = 0; i < jugadores.size(); ++i){
-                		
-                		if(usuario==jugadores[i]->getNombre()&&contra==jugadores[i]->getID()){
-                			int op;
-                			cout<<"Bienvenido al Menu de Jugador"<<endl;
-                			cout<<"------------------------------------------"<<endl;
-                        	cout<<"1-Jugar"<<endl;
-                        	cout<<"2-Salir"<<endl;
-                        	op>>cin;
+            	for (int i = 0; i < jugadores.size(); ++i){
 
-                        	switch(op){
+            		if(usuario1==jugadores[i]->getNombre()&&contra1==jugadores[i]->getID()){
+            			int op;
+            			cout<<"Bienvenido al Menu de Jugador"<<endl;
+            			cout<<"------------------------------------------"<<endl;
+            			cout<<"1-Jugar"<<endl;
+            			cout<<"2-Salir"<<endl;
+            			cin>>op;
 
-                        		case 1:{
+            			switch(op){
 
-                        		}
+            				case 1:{
+            					//Jugar
 
-                        		case 2:{
+								for (int i = 0; i < mesas.size(); ++i){
 
-                        		}
+									if(usuario1==mesas[i]->getJugador()->getNombre()){
 
-                        	}
+											double apuesta;
 
-                        }
+											Baraja* temp = new Baraja();
 
-                }
+											temp = mesas[i]->getRepartidor()->getBaraja();
 
-        	break;
-        	}
+											cout<<"Bienvenido Jugador: "<<usuario1<<endl;
 
-        	case 3:{
+											cout<<"A jugar: "<<endl;
+
+											cout<<"Ingrese su apuesta"<<endl;
+
+											if(apuesta<= mesas[i]->getJugador()->getDinero()){
+												//Juego
+
+												
+
+
+
+
+
+
+
+
+												
+
+											} else{
+												cout<<"No tiene suficiente dinero para jugar"<<endl;
+											}
+
+
+
+											
+
+
+
+
+
+
+
+
+									}else{
+
+										cout<<"Tiene que agregar sus jugadores a las mesas para poder jugar"<<endl;
+									}
+
+								}            					
+
+
+            				}
+
+            				case 2:{
+            					//salir
+
+
+            				}
+
+            			}
+
+            		}
+
+            	}
+
+            	break;
+            }
+
+            case 3:{
         		//agregar Admin
-        		administradores.push_back(AdministradorAgregar());
+            	administradores.push_back(AdministradorAgregar());
 
-        	break;
-        	}
+            	break;
+            }
 
-        	case 4:{
+            case 4:{
         		//Agregar Repartidor
-        		repartidores.push_back(RepartidorAgregar());
+            	repartidores.push_back(RepartidorAgregar());
 
-        	break;
-        	}
+            	break;
+            }
 
 
-        	case 5:{
+            case 5:{
         		//Agregar Jugador
-        		jugadores.push_back(JugadorAgregar());
+            	jugadores.push_back(JugadorAgregar());
 
 
-        	break;
-        	}
+            	break;
+            }
 
 
-        	case 6:{
+            case 6:{
         		//salir
 
 
-        	break;
-        	}
+            	break;
+            }
 
         }
 
@@ -175,7 +336,7 @@ int main(){
 
 
 
-return 0;
+    return 0;
 }
 
 Administrador* AdministradorAgregar(){
@@ -212,7 +373,7 @@ Administrador* AdministradorAgregar(){
 	if(m==3){
 		Rango="Gerente General";
 	}
-		
+
 	cout<< " Ingrese Año Trabajo:  " <<endl;
 	cin>> AContratacion;
 	cout<< " Ingrese Sueldo:  " <<endl;
