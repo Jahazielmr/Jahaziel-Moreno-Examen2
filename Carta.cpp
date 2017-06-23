@@ -7,7 +7,8 @@ Carta::Carta(string Valor,string Color,string Simbolo){
 }
 Carta::Carta(){
 
-}void Carta::setValor(string Valor){
+}
+void Carta::setValor(string Valor){
    this-> Valor=Valor;
 }
 string Carta::getValor(){

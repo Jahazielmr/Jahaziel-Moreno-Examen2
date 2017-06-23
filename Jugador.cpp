@@ -26,6 +26,11 @@ void Jugador::setTotal(double Total){
    this-> Total=Total;
 }
 
+double Jugador::getTotal(){
+   return Total;
+}
+
+
 void Jugador::setProcedencia(string Procedencia){
 
  	  	this-> Procedencia=Procedencia;
