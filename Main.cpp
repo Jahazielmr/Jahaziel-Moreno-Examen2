@@ -252,7 +252,8 @@ int main(){
 										carta1J=4;
 										carta2J=7;
 										carta1R=2;
-										carta2R=12; 
+										carta2R=12;
+										//HOLA 
 
             							cout<<"Hola";
             							if(apuesta1<= mesas[i]->getJugador()->getTotal()){
