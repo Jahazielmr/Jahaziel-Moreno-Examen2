@@ -259,7 +259,7 @@ int main(){
             							if(apuesta1<= mesas[i]->getJugador()->getTotal()){
 
             								int total1, total2;
-            								while(total1==21||total1<2||total2==21||total2<21){
+            								while(total1==21&&total1<21||total2==21||total2<21){
             									if(cont%2==0){
 
   		                                            //turno Repartidor 
@@ -279,7 +279,9 @@ int main(){
             										cout<<"1-Para agregar carta"<<endl;
             										cout<<"2-Pasar turno"<<endl;
 
+
             										int accion;
+            										cin >>accion;
 
             										if(accion==1){
             											int random = rand()%52+1;
@@ -315,6 +317,8 @@ int main(){
             										cout<<"2-Pasar turno"<<endl;
 
             										int accion;
+
+            										cin>>accion;
 
             										if(accion==1){
             											int random = rand()%52+1;
