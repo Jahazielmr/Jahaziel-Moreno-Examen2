@@ -293,6 +293,7 @@ int main(){
             										}else if(accion==2){
             											break;
             										}
+            										cont ++;
 
             									}//Fin if turno
 
@@ -327,6 +328,7 @@ int main(){
             										}else if(accion==2){
             											break;
             										}
+            										cont ++;
 
 
             									}
