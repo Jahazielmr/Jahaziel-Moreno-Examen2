@@ -243,10 +243,16 @@ int main(){
             							int random3= rand()%50+1;
             							int random4 = rand()%50+1;	
             							
-            							carta1J = mesas[i]->getRepartidor()->getBaraja()->getCartas()->at(random)->getValorInt();
+            							/*carta1J = mesas[i]->getRepartidor()->getBaraja()->getCartas()->at(random)->getValorInt();
             							carta2J = mesas[i]->getRepartidor()->getBaraja()->getCartas()->at(random2)->getValorInt();
             							carta1R = mesas[i]->getRepartidor()->getBaraja()->getCartas()->at(random3)->getValorInt();
             							carta2R = mesas[i]->getRepartidor()->getBaraja()->getCartas()->at(random4)->getValorInt();
+										*/
+
+										carta1J=4;
+										carta2J=7;
+										carta1R=2;
+										carta2R=12; 
 
             							cout<<"Hola";
             							if(apuesta1<= mesas[i]->getJugador()->getTotal()){

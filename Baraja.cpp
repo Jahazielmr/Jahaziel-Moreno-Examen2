@@ -166,6 +166,6 @@ Baraja::Baraja(){
 
 }
 
-vector<Carta*> Baraja::getCartas(){
+vector<Carta*>* Baraja::getCartas(){
 	return cartas;
 }
