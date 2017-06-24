@@ -259,7 +259,7 @@ int main(){
             							if(apuesta1<= mesas[i]->getJugador()->getTotal()){
 
             								int total1, total2;
-            								while(total1==21||total1>2||total2==21||total2>21){
+            								while(total1==21||total1<2||total2==21||total2<21){
             									if(cont%2==0){
 
   		                                            //turno Repartidor 
