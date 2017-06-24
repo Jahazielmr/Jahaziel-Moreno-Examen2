@@ -14,7 +14,10 @@ class Baraja{
         vector <Carta*>* cartas;
         
     public:
+        Baraja(int i);
         Baraja();
+
+
 
         vector<Carta*>* getCartas();
     

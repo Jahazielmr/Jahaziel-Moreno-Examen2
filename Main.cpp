@@ -205,7 +205,6 @@ int main(){
 
             case 2:{
         		//ingresar como usuario
-
             	string usuario1, contra1;
             	cout<<"Ingrese Nombre: "<<endl;
             	cin>>usuario1;
@@ -213,7 +212,6 @@ int main(){
             	cin>>contra1;
 
             	for (int i = 0; i < jugadores.size(); ++i){
-
             		if(usuario1==jugadores[i]->getNombre()&&contra1==jugadores[i]->getID()){
             			int op2;
             			cout<<"Bienvenido al Menu de Jugador"<<endl;
@@ -223,539 +221,294 @@ int main(){
             			cin>>op2;
 
             			switch(op2){
-
             				case 1:{
-            					//Jugar
-
+            					
             					for (int i = 0; i < mesas.size(); ++i){
 
             						if(usuario1==mesas[i]->getJugador()->getNombre()){
-
             							double apuesta;
 
             							int carta1J, carta2J, carta1R,carta2R;
             							int cont=0;
-
-            							Baraja* temp = new Baraja();
-
-
-            							temp = mesas[i]->getRepartidor()->getBaraja();
-
+            							
             							cout<<"Bienvenido Jugador: "<<usuario1<<endl;
 
             							cout<<"A jugar: "<<endl;
-
+            							int apuesta1;
             							cout<<"Ingrese su apuesta"<<endl;
+            							cin >>apuesta1;
 
-            							for (int j = 0; j < 2; ++j){
-            								
-            								int random = rand()%52+1;
-            								vector <Carta*>* aux= temp->getCartas();
+            							int random = rand()%52+1;
+            							int random2 = rand()%52+1;
+            							int random3= rand()%52+1;
+            							int random4 = rand()%52+1;	
+            							
+            							carta1J = mesas[i]->getRepartidor()->getBaraja()->getCartas()->at(random)->getValorInt();
+            							carta1J = mesas[i]->getRepartidor()->getBaraja()->getCartas()->at(random2)->getValorInt();
+            							carta1J = mesas[i]->getRepartidor()->getBaraja()->getCartas()->at(random3)->getValorInt();
+            							carta1J = mesas[i]->getRepartidor()->getBaraja()->getCartas()->at(random4)->getValorInt();
 
-            								if(aux->at(random)->getValor()=="J"){
-            									carta1J=11;
-            								}
+            							cout<<"Hola";
+            							if(apuesta1<= mesas[i]->getJugador()->getTotal()){
 
-            								if(aux->at(random)->getValor()=="A"){
-            									carta1J=1;
+            								int total1, total2;
+            								while(total1==21||total1>2||total2==21||total2>21){
+            									if(cont%2==0){
 
-            								}
+  		                                            //turno Repartidor 
 
-            								if(aux->at(random)->getValor()=="Q"){
-            									carta1J=12;
-            								}
+            										cout<<"Estas son sus carta Repartidor"<<endl;
 
-            								if(aux->at(random)->getValor()=="K"){
-            									carta1J=13;
+            										cout<<"Este es el valor de su primera carta: "<< carta1R<<endl;
+            										cout<<"Este es el valor de su segunda carta: "<< carta2R<<endl;
+            										total1 += carta1R+carta2R;
+            										cout<<"Esta es la suma de sus cartas: "<<total1<<endl;
 
-            								}
+            										cout<<"Estas son las carta de su rival"<<endl;
 
-            								if(aux->at(random)->getValor()=="2"){
-            									carta1J=2;
-            								}
+            										cout<<"Este es el valor de la primera carta: "<< carta1J<<endl;
+            										cout<<"Este es el valor de la segunda carta: "<<"Oculto"<<endl;
 
-            								if(aux->at(random)->getValor()=="3"){
-            									carta1J=3;
+            										cout<<"1-Para agregar carta"<<endl;
+            										cout<<"2-Pasar turno"<<endl;
 
-            								}
+            										int accion;
 
-            								if(aux->at(random)->getValor()=="4"){
-            									carta1J=4;
-            								}
+            										if(accion==1){
+            											int random = rand()%52+1;
 
-            								if(aux->at(random)->getValor()=="5"){
-            									carta1J=5;
+            											cout <<"El valor de la carta que saco es: "<<random<<endl;
 
-            								}
+            											total1+=random;
 
 
-            								if(aux->at(random)->getValor()=="6"){
-            									carta1J=6;
-            								}
 
-            								if(aux->at(random)->getValor()=="7"){
-            									carta1J=7;
-
-            								}
-
-            								if(aux->at(random)->getValor()=="8"){
-            									carta1J=8;
-            								}
-
-            								if(aux->at(random)->getValor()=="9"){
-            									carta1J=9;
-
-            								}
-
-            								if(aux->at(random)->getValor()=="10"){
-            									carta1J=10;
-
-            								}
-
-            								}//
-            								//carta 2
-            								for (int m = 0; m < 2; ++m){
-
-            									int random = rand()%52+1;
-
-            									vector <Carta*>* aux= temp->getCartas();
-
-            									if(aux->at(random)->getValor()=="J"){
-            										carta2J=11;
-            									}
-
-            									if(aux->at(random)->getValor()=="A"){
-            										carta2J=1;
-
-            									}
-
-            									if(aux->at(random)->getValor()=="Q"){
-            										carta2J=12;
-            									}
-
-            									if(aux->at(random)->getValor()=="K"){
-            										carta2J=13;
-
-            									}
-
-            									if(aux->at(random)->getValor()=="2"){
-            										carta2J=2;
-            									}
-
-            									if(aux->at(random)->getValor()=="3"){
-            										carta2J=3;
-
-            									}
-
-            									if(aux->at(random)->getValor()=="4"){
-            										carta2J=4;
-            									}
-
-            									if(aux->at(random)->getValor()=="5"){
-            										carta2J=5;
-
-            									}
-
-
-            									if(aux->at(random)->getValor()=="6"){
-            										carta2J=6;
-            									}
-
-            									if(aux->at(random)->getValor()=="7"){
-            										carta2J=7;
-
-            									}
-
-            									if(aux->at(random)->getValor()=="8"){
-            										carta2J=8;
-            									}
-
-            									if(aux->at(random)->getValor()=="9"){
-            										carta2J=9;
-
-            									}
-
-            									if(aux->at(random)->getValor()=="10"){
-            										carta2J=10;
-
-            									}         
-
-
-            								}
-
-            								//cartas repartidor
-
-            								for (int j = 0; j < 2; ++j){
-
-            									int random = rand()%52+1;
-            									vector <Carta*>* aux= temp->getCartas();
-
-            									if(aux->at(random)->getValor()=="J"){
-            										carta2R=11;
-            									}
-
-            									if(aux->at(random)->getValor()=="A"){
-            										carta2R=1;
-
-            									}
-
-            									if(aux->at(random)->getValor()=="Q"){
-            										carta2R=12;
-            									}
-
-            									if(aux->at(random)->getValor()=="K"){
-            										carta2R=13;
-
-            									}
-
-            									if(aux->at(random)->getValor()=="2"){
-            										carta2R=2;
-            									}
-
-            									if(aux->at(random)->getValor()=="3"){
-            										carta2R=3;
-
-            									}
-
-            									if(aux->at(random)->getValor()=="4"){
-            										carta2R=4;
-            									}
-
-            									if(aux->at(random)->getValor()=="5"){
-            										carta2R=5;
-
-            									}
-
-
-            									if(aux->at(random)->getValor()=="6"){
-            										carta2R=6;
-            									}
-
-            									if(aux->at(random)->getValor()=="7"){
-            										carta2R=7;
-
-            									}
-
-            									if(aux->at(random)->getValor()=="8"){
-            										carta2R=8;
-            									}
-
-            									if(aux->at(random)->getValor()=="9"){
-            										carta2R=9;
-
-            									}
-
-            									if(aux->at(random)->getValor()=="10"){
-            										carta2R=10;
-
-            									}
-
-            								}//
-            								//carta 2
-            								for (int n = 0; n < 2; ++n){
-
-            									int random = rand()%52+1;
-
-            									vector <Carta*>* aux= temp->getCartas();
-
-            									if(aux->at(random)->getValor()=="J"){
-            										carta1R=11;
-            									}
-
-            									if(aux->at(random)->getValor()=="A"){
-            										carta1R=1;
-
-            									}
-
-            									if(aux->at(random)->getValor()=="Q"){
-            										carta1R=12;
-            									}
-
-            									if(aux->at(random)->getValor()=="K"){
-            										carta1R=13;
-
-            									}
-
-            									if(aux->at(random)->getValor()=="2"){
-            										carta1R=2;
-            									}
-
-            									if(aux->at(random)->getValor()=="3"){
-            										carta1R=3;
-
-            									}
-
-            									if(aux->at(random)->getValor()=="4"){
-            										carta1R=4;
-            									}
-
-            									if(aux->at(random)->getValor()=="5"){
-            										carta1R=5;
-
-            									}
-
-
-            									if(aux->at(random)->getValor()=="6"){
-            										carta1R=6;
-            									}
-
-            									if(aux->at(random)->getValor()=="7"){
-            										carta1R=7;
-
-            									}
-
-            									if(aux->at(random)->getValor()=="8"){
-            										carta1R=8;
-            									}
-
-            									if(aux->at(random)->getValor()=="9"){
-            										carta1R=9;
-
-            									}
-
-            									if(aux->at(random)->getValor()=="10"){
-            										carta1R=10;
-
-            									}
-
-            								}
-
-            									if(apuesta<= mesas[i]->getJugador()->getTotal()){
-												//Juego
-            										int total1, total2;
-            										while(total1==21||total1>2||total2==21||total2>21){
-            											if(cont%2==0){
-													//turno Repartidor 
-            												
-            												cout<<"Estas son sus carta Repartidor"<<endl;
-            												 
-            												cout<<"Este es el valor de su primera carta: "<< carta1R<<endl;
-            												cout<<"Este es el valor de su segunda carta: "<< carta2R<<endl;
-            												total1 +=carta1R+carta2R;
-            												cout<<"Esta es la suma de sus cartas: "<<total1<<endl;
-
-            												cout<<"Estas son las carta de su rival"<<endl;
-
-            												cout<<"Este es el valor de la primera carta: "<< carta1J<<endl;
-            												cout<<"Este es el valor de la segunda carta: "<<"Oculto"<<endl;
-
-            												cout<<"1-Para agregar carta"<<endl;
-            												cout<<"2-Pasar turno"<<endl;
-
-            												int accion;
-
-            												if(accion==1){
-            													int random = rand()%52+1;
-            													
-            													cout <<"El valor de la carta que saco es: "<<random<<endl;
-
-
-
-            												}else if(accion==2){
-
-            												}
-
-
-
-
-
-            											} else{
-													//turno Jugador
-
-            											}
-
-
-
-
+            										}else if(accion==2){
+            											break;
             										}
 
-            										cout<<"El juego a acabado"<<endl;
+            									}//Fin if turno
+
+            									else{
+                                                                                          //turno Jugador
+            										cout<<"Estas son sus carta Jugador"<<endl;
+
+            										cout<<"Este es el valor de su primera carta: "<< carta1J<<endl;
+            										cout<<"Este es el valor de su segunda carta: "<< carta2J<<endl;
+            										total2 += carta1J+carta2J;
+            										cout<<"Esta es la suma de sus cartas: "<<total2<<endl;
+
+            										cout<<"Estas son las carta de su rival"<<endl;
+
+            										cout<<"Este es el valor de la primera carta: "<< carta1R<<endl;
+            										cout<<"Este es el valor de la segunda carta: "<<"Oculto"<<endl;
+
+            										cout<<"1-Para agregar carta"<<endl;
+            										cout<<"2-Pasar turno"<<endl;
+
+            										int accion;
+
+            										if(accion==1){
+            											int random = rand()%52+1;
+
+            											cout <<"El valor de la carta que saco es: "<<random<<endl;
+
+            											total2+=random;
 
 
-            									} else{
-            										cout<<"No tiene suficiente dinero para jugar"<<endl;
+
+            										}else if(accion==2){
+            											break;
+            										}
+
+
             									}
 
 
-            								}else{
+            								}//FIN WHILE TURNOS
+            								cout<<"El juego a acabado"<<endl;
 
-            									cout<<"Tiene que agregar sus jugadores a las mesas para poder jugar"<<endl;
-            								}
+            							}//if mesas
 
-            							}            					
+            							else{
+            								cout<<"No tiene suficiente dinero para jugar"<<endl;
+            							}
 
-
+            						}else{
+            							cout<<"Tiene que agregar sus jugadores a las mesas para poder jugar"<<endl;
             						}
 
-            						case 2:{
-            					//salir
+            					}//fin for mesas
 
-
-            						}
-
-            					}
-
+            					break;	
+            				}//fin case 1
+            				case 2:{
+            					break;
             				}
 
             			}
 
-            			break;
-            		}
 
-            		case 3:{
-        		//agregar Admin
-            			administradores.push_back(AdministradorAgregar());
-
-            			break;
-            		}
-
-            		case 4:{
-        		//Agregar Repartidor
-            			repartidores.push_back(RepartidorAgregar());
-
-            			break;
-            		}
-
-
-            		case 5:{
-        		//Agregar Jugador
-            			jugadores.push_back(JugadorAgregar());
-
-
-            			break;
-            		}
-
-
-            		case 6:{
-        		//salir
-
-
-            			break;
             		}
 
             	}
 
-            	cout <<"Desea continuar s/n"<<endl;
-            	cin>>resp;
+            }
+
+            case 3:{
+        		//agregar Admin
+            	administradores.push_back(AdministradorAgregar());
+
+            	break;
+            }
+
+            case 4:{
+        		//Agregar Repartidor
+            	repartidores.push_back(RepartidorAgregar());
+
+            	break;
             }
 
 
-
-            return 0;
-        }
-
-        Administrador* AdministradorAgregar(){
-        	string Nombre;
-        	string ID;
-        	int Edad;
-        	string Rango;
-        	int AContratacion;
-        	double Sueldo;
-        	int m;
-
-        	cout<< " Ingrese Nombre:  " <<endl;	
-        	cin>> Nombre;
-        	cout<< " Ingrese ID:  " <<endl;
-        	cin>> ID;
-        	cout<< " Ingrese Edad:  " <<endl;
-        	cin>> Edad;
-        	cout<< " Ingrese Rango:  "<<endl;
-        	cout<<"1-Gerente Tiempo Completo"<<endl;
-        	cout<<"2-Gerente Medio Tiempo"<<endl;
-        	cout<<"3-Gerente General"<<endl;
-        	cin >>m;
-
-        	if(m==1){
-        		Rango="Gerente Tiempo Completo";
-        	}
+            case 5:{
+        		//Agregar Jugador
+            	jugadores.push_back(JugadorAgregar());
 
 
-        	if(m==2){
-        		Rango="Gerente Tiempo Medio";
-        	}
+            	break;
+            }
 
 
-        	if(m==3){
-        		Rango="Gerente General";
-        	}
+            case 6:{
+        		//salir
 
-        	cout<< " Ingrese Año Trabajo:  " <<endl;
-        	cin>> AContratacion;
-        	cout<< " Ingrese Sueldo:  " <<endl;
-        	cin>> Sueldo;
 
-        	Administrador* temp = new Administrador(Nombre,Edad,ID,AContratacion,Rango, Sueldo);
-
-        	return temp;
+            	break;
+            }
 
         }
 
-        Jugador* JugadorAgregar(){
-        	string Nombre;
-        	string ID;
-        	int Edad;
-        	string Procedencia;
-        	double Sueldo;
-        	string apodo;
-
-        	cout<< " Ingrese Nombre:  " <<endl;	
-        	cin>> Nombre;
-        	cout<< " Ingrese ID:  " <<endl;
-        	cin>> ID;
-        	cout<< " Ingrese Edad:  " <<endl;
-        	cin>> Edad;
-        	cout<< " Ingrese Procedencia:  "<<endl;
-        	cin >>Procedencia;
-        	cout<< " Ingrese Apodo:  " <<endl;
-        	cin>> apodo;
-        	cout<<"Ingrese Dinero: "<<endl;
-        	cin >> Sueldo;
-
-        	Jugador* temp = new Jugador(Nombre,Edad,ID,Procedencia,apodo, Sueldo);
-
-        	return temp;
-
-        }
-
-        Repartidor* RepartidorAgregar(){
-        	string Nombre;
-        	string ID;
-        	int Edad;
-        	double Dinero;
-        	int m;
-        	string Dificultad;
-
-        	cout<< " Ingrese Nombre:  " <<endl;	
-        	cin>> Nombre;
-        	cout<< " Ingrese ID:  " <<endl;
-        	cin>> ID;
-        	cout<< " Ingrese Edad:  " <<endl;
-        	cin>> Edad;
-        	cout<< " Ingrese Dinero:  " <<endl;
-        	cin>> Dinero;
-
-        	cout<< " Ingrese Dificultad:  "<<endl;
-        	cout<<"1-Dificil"<<endl;
-        	cout<<"2-Intermedio"<<endl;
-        	cout<<"3-Facil"<<endl;
-        	cin >>m;
-
-        	if(m==1){
-        		Dificultad="Dificil";
-        	}
+        cout <<"Desea continuar s/n"<<endl;
+        cin>>resp;
+    }
 
 
-        	if(m==2){
-        		Dificultad="Intermerdio";
-        	}
+
+    return 0;
+}
+
+Administrador* AdministradorAgregar(){
+	string Nombre;
+	string ID;
+	int Edad;
+	string Rango;
+	int AContratacion;
+	double Sueldo;
+	int m;
+
+	cout<< " Ingrese Nombre:  " <<endl;	
+	cin>> Nombre;
+	cout<< " Ingrese ID:  " <<endl;
+	cin>> ID;
+	cout<< " Ingrese Edad:  " <<endl;
+	cin>> Edad;
+	cout<< " Ingrese Rango:  "<<endl;
+	cout<<"1-Gerente Tiempo Completo"<<endl;
+	cout<<"2-Gerente Medio Tiempo"<<endl;
+	cout<<"3-Gerente General"<<endl;
+	cin >>m;
+
+	if(m==1){
+		Rango="Gerente Tiempo Completo";
+	}
 
 
-        	if(m==3){
-        		Dificultad="Facil";
-        	}
+	if(m==2){
+		Rango="Gerente Tiempo Medio";
+	}
 
-        	Repartidor* temp = new Repartidor(Nombre,Edad,ID,Dificultad,Dinero);
 
-        	return temp;
+	if(m==3){
+		Rango="Gerente General";
+	}
 
-        }
+	cout<< " Ingrese Año Trabajo:  " <<endl;
+	cin>> AContratacion;
+	cout<< " Ingrese Sueldo:  " <<endl;
+	cin>> Sueldo;
+
+	Administrador* temp = new Administrador(Nombre,Edad,ID,AContratacion,Rango, Sueldo);
+
+	return temp;
+
+}
+
+Jugador* JugadorAgregar(){
+	string Nombre;
+	string ID;
+	int Edad;
+	string Procedencia;
+	double Sueldo;
+	string apodo;
+
+	cout<< " Ingrese Nombre:  " <<endl;	
+	cin>> Nombre;
+	cout<< " Ingrese ID:  " <<endl;
+	cin>> ID;
+	cout<< " Ingrese Edad:  " <<endl;
+	cin>> Edad;
+	cout<< " Ingrese Procedencia:  "<<endl;
+	cin >>Procedencia;
+	cout<< " Ingrese Apodo:  " <<endl;
+	cin>> apodo;
+	cout<<"Ingrese Dinero: "<<endl;
+	cin >> Sueldo;
+
+	Jugador* temp = new Jugador(Nombre,Edad,ID,Procedencia,apodo, Sueldo);
+
+	return temp;
+
+}
+
+Repartidor* RepartidorAgregar(){
+	string Nombre;
+	string ID;
+	int Edad;
+	double Dinero;
+	int m;
+	string Dificultad;
+
+	cout<< " Ingrese Nombre:  " <<endl;	
+	cin>> Nombre;
+	cout<< " Ingrese ID:  " <<endl;
+	cin>> ID;
+	cout<< " Ingrese Edad:  " <<endl;
+	cin>> Edad;
+	cout<< " Ingrese Dinero:  " <<endl;
+	cin>> Dinero;
+
+	cout<< " Ingrese Dificultad:  "<<endl;
+	cout<<"1-Dificil"<<endl;
+	cout<<"2-Intermedio"<<endl;
+	cout<<"3-Facil"<<endl;
+	cin >>m;
+
+	if(m==1){
+		Dificultad="Dificil";
+	}
+
+
+	if(m==2){
+		Dificultad="Intermerdio";
+	}
+
+
+	if(m==3){
+		Dificultad="Facil";
+	}
+
+	Repartidor* temp = new Repartidor(Nombre,Edad,ID,Dificultad,Dinero);
+
+	return temp;
+
+}

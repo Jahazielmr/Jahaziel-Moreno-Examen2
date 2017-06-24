@@ -22,5 +22,7 @@ class Carta{
         string getSimbolo();
         void setSimbolo(string);
 
+        int getValorInt();
+
 };
 #endif
