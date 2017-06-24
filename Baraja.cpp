@@ -1,6 +1,6 @@
 #include "Baraja.h"
 
-Baraja::Baraja(int Z){
+Baraja::Baraja(){
 	
 	//ESPADA;
 
@@ -166,11 +166,6 @@ Baraja::Baraja(int Z){
 
 }
 
-vector<Carta*>* Baraja::getCartas(){
+vector<Carta*> Baraja::getCartas(){
 	return cartas;
-}
-
-Baraja::Baraja(){
-
-	
 }

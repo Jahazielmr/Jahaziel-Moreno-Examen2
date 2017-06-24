@@ -11,13 +11,10 @@ using namespace std;
 class Baraja{
     protected:
 
-        vector <Carta*>* cartas;
+        vector <Carta*>*cartas;
         
     public:
-        Baraja(int i);
         Baraja();
-
-
 
         vector<Carta*>* getCartas();
     
