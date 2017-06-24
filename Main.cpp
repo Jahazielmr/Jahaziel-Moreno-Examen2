@@ -255,11 +255,11 @@ int main(){
 										carta2R=12;
 										//HOLA 
 
-            							cout<<"Hola";
+            							
             							if(apuesta1<= mesas[i]->getJugador()->getTotal()){
 
             								int total1, total2;
-            								while(total1==21&&total1<21||total2==21||total2<21){
+            								while(total1==21||total1<21||total2==21||total2<21){
             									if(cont%2==0){
 
   		                                            //turno Repartidor 
